@@ -7,7 +7,7 @@ phases:
   pre_build:
     commands:
       - echo "Installing Maven..."
-      - apt-get update && apt-get install -y maven
+      
   build:
     commands:
       - echo "Building the Spring Boot application..."
