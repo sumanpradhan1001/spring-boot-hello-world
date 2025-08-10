@@ -28,14 +28,14 @@ stages:
         tags: |
           $(tag)
     - task: Maven@4
-  inputs:
-    azureSubscription: 'Azure subscription 1(d21bd131-a869-4493-98ac-685d6c8b1d58)'
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+      inputs:
+        azureSubscription: 'Azure subscription 1(d21bd131-a869-4493-98ac-685d6c8b1d58)'
+        mavenPomFile: 'pom.xml'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
     
