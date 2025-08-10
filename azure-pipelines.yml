@@ -39,13 +39,14 @@ steps:
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
 
+  
   - task: Kubernetes@1
     inputs:
-      connectionType: 'Kubernetes Service Connection'
-      kubernetesServiceEndpoint: 'abc'
-      namespace: 'default'
-      command: 'apply'
-      useConfigurationFile: true
-      configuration: 'deployment.yml'
-      secretType: 'dockerRegistry'
-      containerRegistryType: 'Azure Container Registry'
+     connectionType: 'Kubernetes Service Connection'
+     kubernetesServiceEndpoint: 'abc'
+     namespace: 'default'
+     command: 'apply'
+     useConfigurationFile: true
+     configuration: 'deployment.yml'
+     secretType: 'dockerRegistry'
+     containerRegistryType: 'Azure Container Registry'
