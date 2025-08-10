@@ -12,7 +12,6 @@ steps:
   - script: mkdir -p $(MAVEN_CACHE_FOLDER)
     displayName: 'Create Maven cache directory'
 
-
   - task: Cache@2
     inputs:
       key: 'maven | "$(Agent.OS)" | **/pom.xml'
@@ -35,18 +34,18 @@ steps:
   
   - task: Docker@2
     inputs:
-     containerRegistry: 'test1'
-     repository: 'abc'
-     command: 'buildAndPush'
-     Dockerfile: '**/Dockerfile'
+      containerRegistry: 'test1'
+      repository: 'abc'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
 
   - task: Kubernetes@1
     inputs:
-         connectionType: 'Kubernetes Service Connection'
-         kubernetesServiceEndpoint: 'abc'
-         namespace: 'default'
-         command: 'apply'
-         useConfigurationFile: true
-         configuration: 'deployment.yml'
-         secretType: 'dockerRegistry'
-         containerRegistryType: 'Azure Container Registry'
+      connectionType: 'Kubernetes Service Connection'
+      kubernetesServiceEndpoint: 'abc'
+      namespace: 'default'
+      command: 'apply'
+      useConfigurationFile: true
+      configuration: 'deployment.yml'
+      secretType: 'dockerRegistry'
+      containerRegistryType: 'Azure Container Registry'
