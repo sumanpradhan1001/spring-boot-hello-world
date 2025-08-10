@@ -20,13 +20,6 @@ steps:
       path: $(MAVEN_CACHE_FOLDER)
     continueOnError: true
 
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'test1'
-      repository: 'abc'
-      command: 'buildAndPush'
-      Dockerfile: '**/Dockerfile'
-
   - task: Maven@4
     inputs:
       azureSubscription: 'Azure subscription 1(d21bd131-a869-4493-98ac-685d6c8b1d58)'
@@ -38,3 +31,10 @@ steps:
       mavenAuthenticateFeed: false
       effectivePomSkip: false
       sonarQubeRunAnalysis: false
+  
+  - task: Docker@2
+    inputs:
+     containerRegistry: 'test1'
+     repository: 'abc'
+     command: 'buildAndPush'
+     Dockerfile: '**/Dockerfile'
