@@ -1,5 +1,5 @@
 trigger:
-- main
+  - main
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -22,10 +22,10 @@ steps:
 
   - task: Docker@2
     inputs:
-     containerRegistry: 'test1'
-     repository: 'abc'
-     command: 'buildAndPush'
-     Dockerfile: '**/Dockerfile'
+      containerRegistry: 'test1'
+      repository: 'abc'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
 
   - task: Maven@4
     inputs:
@@ -38,10 +38,3 @@ steps:
       mavenAuthenticateFeed: false
       effectivePomSkip: false
       sonarQubeRunAnalysis: false
-
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'test1'
-      repository: 'abc'
-      command: 'buildAndPush'
-      Dockerfile: '**/Dockerfile'
